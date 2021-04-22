@@ -6,7 +6,7 @@ _pycache_/*
 */__pycache__
 *cache__/
 .vscode/
-
+*.html
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
