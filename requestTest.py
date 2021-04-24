@@ -15,6 +15,5 @@ web_source = requests.get(tgt_url, headers=REQUEST_HEADER)
 
 # soup = BeautifulSoup(web_source.content.decode("gbk"), 'lxml')
 w = web_source.content.decode("gbk")
-
 print(w)
 

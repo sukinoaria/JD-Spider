@@ -11,7 +11,7 @@ _pycache_/*
 __pycache__/
 *.py[cod]
 *$py.class
-
+download
 # C extensions
 *.so
 
