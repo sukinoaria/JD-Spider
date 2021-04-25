@@ -6,8 +6,6 @@ import random
 import codecs
 import requests
 from bs4 import BeautifulSoup
-# from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
 
 class Spider:
     def __init__(self, comment_url, product_list=None,finish_list=None ,download_path="download/", proxy_file=None):
@@ -113,19 +111,24 @@ class Spider:
         for key,name in self.products.items():
             if key in self.finish_list:continue
 
-            name = re.sub(r"[-()\"\n\t#/@;:<>{}`+=~|.!?,]", "", name)
+            name = re.sub(r"[-()\"\n\t\\#/@;:<>{}`+=~|.!?,]", "", name)
             self.crawl_once(key,name,idx,product_count)
             idx += 1
 
             with open("finish.txt","a+") as f:
                 f.write(key+"\n")
 
-
         print("spider run over ... ")
 
 if __name__ == '__main__':
+    # page为评论页数
     product_comment_url = "https://club.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98&" \
-                          "productId={}&score=0&sortType=5&page=1&pageSize=10&isShadowSku=0&rid=0&fold=1"
+                          "productId={}&score=0&sortType=5&page=2&pageSize=10&isShadowSku=0&rid=0&fold=1"
 
-    spider = Spider(product_comment_url,"products.json","finish.txt")
+    # 未获取product id
+    spider = Spider(product_comment_url)
+
+    # 已经拿到product id文件后
+    # spider = Spider(product_comment_url,"products.json","finish.txt")
+
     spider.run()

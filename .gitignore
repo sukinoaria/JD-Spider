@@ -14,7 +14,7 @@ __pycache__/
 download
 # C extensions
 *.so
-
+products.json
 # Distribution / packaging
 .Python
 env/
